@@ -10,15 +10,15 @@ class Viewer
     {
         this.l2d = new L2D(basePath);//new一个l2d.js中L2D对象
         this.canvas = $(".Canvas");//与网页的Canvas绑定
-        //this.selectCharacter = $(".selectCharacter");//与网页的selectCharacter绑定
-        //this.selectAnimation = $(".selectAnimation");//与网页的selectAnimation绑定
+        this.selectCharacter = $(".selectCharacter");//与网页的selectCharacter绑定
+        this.selectAnimation = $(".selectAnimation");//与网页的selectAnimation绑定
         //获取chardata里面，模型名称及文件位置
-        //let stringCharacter = "<option>Select3</option>";
-        //for (let val in charData) 
-        //{
-             //stringCharacter+= '<option value="' + charData[val] + '">' + val + '</option>';
-        //}
-        //this.selectCharacter.html(stringCharacter);//跟html的数据关联
+        let stringCharacter = "<option>Select3</option>";
+        for (let val in charData) 
+        {
+             stringCharacter+= '<option value="' + charData[val] + '">' + val + '</option>';
+        }
+        this.selectCharacter.html(stringCharacter);//跟html的数据关联
         this.selectCharacter.change((event) => {
             if (event.target.selectedIndex == 0) {return;}//当选项为<option>Select</option>返回
             let name = event.target.value;//option value的值，模型文件夹名，具体moc等文件名字补全在l2d.js中操作
